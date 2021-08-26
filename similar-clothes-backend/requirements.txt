@@ -1,0 +1,8 @@
+fastapi
+numpy
+opencv-python
+pillow
+python-multipart
+uvicorn
+qdrant-client
+requests
