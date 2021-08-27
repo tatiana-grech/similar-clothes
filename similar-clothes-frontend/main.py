@@ -36,7 +36,7 @@ if pick_img:
     img_index = pick_img-1
     st.text('Selected item')
     st.image(images[pick_img-1-st.session_state.counter], width=120)
-    res = requests.post(f"http://host.docker.internal:8080/{img_index}")
+    res = requests.post(f"http://backend:8080/{img_index}")
     neighbours_images = get_list_of_images(res.json()['neighbours'])
     st.text('Similar items')
     st.image(neighbours_images, width=120)

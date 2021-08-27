@@ -12,7 +12,7 @@ def read_root():
 
 @app.post("/{img_index}")
 def get_neighbours(img_index: int):
-    img_response = requests.get('http://host.docker.internal:6333/collections/clothes_collection/points/'+str(img_index))
+    img_response = requests.get('http://qdrant:6333/collections/clothes_collection/points/'+str(img_index))
     search_obj = {
         "filter": {
         },
@@ -22,7 +22,7 @@ def get_neighbours(img_index: int):
         "vector": img_response.json()['result']['vector'],
         "top": 4
     }
-    search_response = requests.post('http://host.docker.internal:6333/collections/clothes_collection/points/search', json=search_obj)
+    search_response = requests.post('http://qdrant:6333/collections/clothes_collection/points/search', json=search_obj)
     neighbours = []
     for item in search_response.json()['result']:
         if (len(neighbours) < 3) & (item['id'] != img_index):

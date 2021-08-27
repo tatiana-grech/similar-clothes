@@ -4,13 +4,13 @@ services:
   frontend:
     build: similar-clothes-frontend
     ports:
-      - 8501:8501
+      - 80:8501
     depends_on:
       - backend
     volumes:
       - ~/data:/data
-    networks:
-      - docker_network
+    # networks:
+            # - docker_network
 
   backend:
     build: similar-clothes-backend
@@ -18,8 +18,8 @@ services:
       - 8080:8080
     depends_on:
       - qdrant
-    networks:
-      - docker_network
+        # networks:
+        #- docker_network
 
   qdrant:
     image: "generall/qdrant"
@@ -27,9 +27,9 @@ services:
       - 6333:6333
     volumes:
       - ~/storage:/qdrant/storage
-    networks:
-      - docker_network
+        #networks:
+        #- docker_network
 
-networks:
-  docker_network:
-    driver: bridge
+        #networks:
+        #docker_network:
+        #driver: bridge
