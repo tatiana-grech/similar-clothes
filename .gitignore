@@ -1,6 +1,5 @@
+data/clothing-dataset
+.ipynb_checkpoints/
 **/.idea
 **/.DS_Store
 **/venv
-data/archive.zip
-data/clothing-dataset.zip
-data/clothing-dataset
